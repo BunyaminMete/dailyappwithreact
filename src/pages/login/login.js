@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import './style_login.css';
-import { vercelAPI } from '../../api';
+import axios from 'axios';
 
 import RegisterButton from '../../components/Button/Submit/register';
 import InputQuestion from '../../components/Input/input';
@@ -68,8 +68,8 @@ export default function LoginPage() {
     }
 
     let redirectURL;
-    await vercelAPI()
-      .post('/auth/login', userInfo)
+    await axios
+      .post('https://intern-example.vercel.app/auth/login', userInfo)
 
       .then((response) => {
         const whoIsIt = JSON.parse(response.config.data);

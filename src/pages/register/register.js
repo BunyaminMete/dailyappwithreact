@@ -20,7 +20,7 @@ const RegisterArea = () => {
     password: '',
   });
 
-  const baseURL = process.env.REACT_APP_UNSPLASH_URL;
+  // const baseURL = process.env.REACT_APP_UNSPLASH_URL;
 
   const onChange = (event) => {
     const { id, value } = event.target;
@@ -50,7 +50,7 @@ const RegisterArea = () => {
     }
 
     return axios
-      .post(`${baseURL}auth/register`, userInfo)
+      .post(`https://intern-example.vercel.app/auth/register`, userInfo)
       .then((response) => {
         console.log(response);
         console.log(response.data.keyValue.email);
